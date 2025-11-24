@@ -18,7 +18,7 @@ You can use this custom tracer to track cache hits and misses accurately. By ins
 Run the simulation:
 
 ```bash
-./waf --run custom-cs-tracer
+./waf --run Custom-CS-Tracer
 ```
 
 To visualize the results, run the Python script:
