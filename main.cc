@@ -42,12 +42,12 @@ void CustomCsTrace(NodeContainer& nodes) {
 namespace ns3 {
     namespace ndn {
         int main (int argc, char* argv[]) {
-            double zipfAlpha = 1.2; // Default value for Zipf skew parameter
+            double zipfAlpha = 1.2; 
             CommandLine cmd;
             cmd.AddValue("alpha", "Zipf Skew Parameter", zipfAlpha);
             cmd.Parse(argc, argv);
 
-            // Ensure the directory 'scratch/cacheTest' exists, or change this to just "custom-cs-trace.txt"
+    
             csTraceFile.open("scratch/cacheTest/custom-cs-trace.txt", std::ios::out);
 
             std::cout << "[LOG] Actual Alpha Value " << zipfAlpha << "\n";
@@ -71,7 +71,7 @@ namespace ns3 {
 
             StackHelper routerHelper;
             routerHelper.setPolicy("nfd::cs::lru");
-            routerHelper.setCsSize(100); // Routers get memory
+            routerHelper.setCsSize(100); 
             routerHelper.Install(routers);
 
 
@@ -80,7 +80,7 @@ namespace ns3 {
             endpoints.Add(nodes.Get(3));
 
             StackHelper endpointHelper;
-            endpointHelper.setCsSize(0); // Consumers/Producers have NO cache
+            endpointHelper.setCsSize(0); 
             endpointHelper.Install(endpoints);
             
    

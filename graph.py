@@ -1,12 +1,9 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# ------------------------------
-# Load trace file
-# ------------------------------
+
 file_path = "custom-cs-trace.txt"
 
-# The file must have columns: Time  Node  Hits  Misses
 df = pd.read_csv(file_path, sep=r"\s+", header=0)
 
 # ------------------------------
@@ -19,9 +16,7 @@ df["HitRatio"] = df["Hits"] / (df["Hits"] + df["Misses"])
 # ------------------------------
 avg_df = df.groupby("Time")["HitRatio"].mean().reset_index()
 
-# ------------------------------
-# Plotting
-# ------------------------------
+
 plt.figure(figsize=(10, 6))
 
 plt.plot(avg_df["Time"], avg_df["HitRatio"], marker="o")
